@@ -5,4 +5,4 @@ import uvicorn
 if __name__ == "__main__":
     from app.config import config
 
-    uvicorn.run("app.main:app", host="127.0.0.1", port=config.port, reload=False)
+    uvicorn.run("app.main:app", host="0.0.0.0", port=config.store.port, reload=False)
