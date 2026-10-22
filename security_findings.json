@@ -1,0 +1,28 @@
+{
+  "count": 2,
+  "findings": [
+    {
+      "file": "tests/integration/test_store_persistence.py",
+      "line": 114,
+      "issue": "sqlite usage (prefer postgres)"
+    },
+    {
+      "file": "app/storage.py",
+      "line": 33,
+      "issue": "sqlite usage (prefer postgres)"
+    }
+  ],
+  "semgrep": [
+    {
+      "file": "tests/test_live_integration.py",
+      "line": 20,
+      "rule": "python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected",
+      "message": "Detected a dynamic value being used with urllib. urllib supports 'file://' schemes, so a dynamic value controlled by a malicious actor may allow them to read arbitrary files. Audit uses of urllib calls to ensure user data cannot control the URLs, or consider using the 'requests' library instead."
+    }
+  ],
+  "ruff": [],
+  "candidate": {
+    "tree_sha256": "a4a8badcd88c4d9a6b4f409a51a3f77e4db49c262227eb618de38cc1f650b799",
+    "file_count": 62
+  }
+}

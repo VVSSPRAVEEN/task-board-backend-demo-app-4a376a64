@@ -1,0 +1,6 @@
+{
+  "repository_kind": "application-source",
+  "project_name": "Task Board Backend Demo",
+  "run_id": "4a376a64-f2d4-4563-b7c5-6e8b9d89436e",
+  "note": "Application repository. Automated tests are retained here because CI must execute them."
+}

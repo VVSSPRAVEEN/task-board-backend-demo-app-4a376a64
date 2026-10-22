@@ -1,0 +1,41 @@
+name: task-board-backend
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    init: true
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    restart: unless-stopped
+    stop_grace_period: 10s
+    ports:
+      - "127.0.0.1:${P3_PREVIEW_BACKEND_PORT:-8001}:8001"
+    environment:
+      PORT: "8001"
+      DB_PATH: "/data/tasks.db"
+      MAX_BODY_BYTES: "65536"
+      PYTHONDONTWRITEBYTECODE: "1"
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - task-board-data:/data
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8001/health', timeout=4)"
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+
+volumes:
+  task-board-data:
+    name: task-board-data

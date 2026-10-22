@@ -1,0 +1,44 @@
+# Version control and CI metadata
+.git
+.gitignore
+.gitattributes
+.github/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Python caches and build artifacts
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Tooling caches and coverage output
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
+# Local runtime data: the container uses a mounted volume instead
+data/
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# Local environment files
+.env
+.env.*
+
+# Editor / OS noise
+.idea/
+.vscode/
+.DS_Store

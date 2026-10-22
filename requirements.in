@@ -1,0 +1,14 @@
+# Direct dependencies of the Task Board backend (runtime plus the in-process test stack).
+#
+# requirements.txt is the fully resolved, fully pinned lockfile generated from this
+# file with:
+#
+#     pip-compile --output-file=requirements.txt requirements.in
+#
+# Regenerate it whenever a pin below changes and commit the result together.
+fastapi==0.115.6
+uvicorn==0.34.0
+pydantic==2.10.4
+httpx==0.28.1
+pytest==8.3.4
+pytest-cov==6.0.0

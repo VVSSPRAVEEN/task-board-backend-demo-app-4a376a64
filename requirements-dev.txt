@@ -1,0 +1,25 @@
+# Developer tooling on top of the fully pinned runtime lockfile.
+#
+#     python -m pip install -r requirements-dev.txt
+#
+# ruff, mypy and pip-tools are test/lint/build tools only and are never installed
+# into the runtime image, which installs requirements.txt alone.
+-r requirements.txt
+
+# Linting and formatting
+ruff==0.8.6
+
+# Static typing
+mypy==1.14.0
+mypy-extensions==1.1.0
+    # via mypy
+
+# Lockfile regeneration (keeps requirements.txt reproducible from requirements.in)
+pip-tools==7.4.1
+build==1.2.2.post1
+    # via pip-tools
+pyproject-hooks==1.2.0
+    # via build
+    # via pip-tools
+wheel==0.45.1
+    # via pip-tools
